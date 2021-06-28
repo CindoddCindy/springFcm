@@ -13,21 +13,7 @@ import java.io.IOException;
 
 @SpringBootApplication
 public class SpringfcmApplication {
-
-
-	@Bean
-	FirebaseMessaging firebaseMessaging() throws IOException {
-		GoogleCredentials googleCredentials = GoogleCredentials
-				.fromStream(new ClassPathResource("firebase.json").getInputStream());
-		FirebaseOptions firebaseOptions = FirebaseOptions
-				.builder()
-				.setCredentials(googleCredentials)
-				.build();
-		FirebaseApp app = FirebaseApp.initializeApp(firebaseOptions, "my-app");
-		return FirebaseMessaging.getInstance(app);
-	}
-
-
+	
 	public static void main(String[] args) {
 		SpringApplication.run(SpringfcmApplication.class, args);
 	}
